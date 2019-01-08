@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should renders Title correctly Snapshot test 1`] = `
+<Title>
+  <div
+    className="title-section"
+  >
+    <h4
+      className="netflix-text"
+    >
+      netflixroulette
+    </h4>
+  </div>
+</Title>
+`;

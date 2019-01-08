@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Footer correctly Snapshot test 1`] = `
+<Footer>
+  <footer
+    className="footer-section"
+  >
+    <span
+      className="netflix-text"
+    >
+      netflixroulette
+    </span>
+  </footer>
+</Footer>
+`;
