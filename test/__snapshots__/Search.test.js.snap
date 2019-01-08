@@ -1,50 +1,73 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render Search correctly Snapshot test 1`] = `
-<Search>
-  <section
-    className="search-section"
-  >
-    <h4
-      className="white-text"
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Search)>
+    <Search
+      fetchMovies={[Function]}
+      filterMovies={[Function]}
+      filterMoviesBy={[Function]}
     >
-      FIND YOUR MOVIE
-    </h4>
-    <input
-      className="white-text search-title"
-      placeholder="Enter title"
-      type="text"
-    />
-    <div
-      className="search-container"
-    >
-      <div
-        className="search-selection"
+      <section
+        className="search-section"
       >
-        <label
+        <h4
           className="white-text"
         >
-          SEARCH BY
-        </label>
-        <button
-          className="white-text"
-          id="title-btn"
+          FIND YOUR
+        </h4>
+        <input
+          className="white-text search-title"
+          onChange={[Function]}
+          placeholder="Enter title"
+          type="text"
+        />
+        <div
+          className="search-container"
         >
-          TITLE
-        </button>
-        <button
-          className="white-text"
-          id="genre-btn"
-        >
-          GENRE
-        </button>
-      </div>
-      <button
-        className="white-text"
-      >
-        SEARCH
-      </button>
-    </div>
-  </section>
-</Search>
+          <div
+            className="search-selection"
+          >
+            <label
+              className="white-text"
+            >
+              SEARCH BY
+            </label>
+            <button
+              className="white-text"
+              id="title-btn"
+              onClick={[Function]}
+            >
+              TITLE
+            </button>
+            <button
+              className="white-text nonselected-color"
+              id="genre-btn"
+              onClick={[Function]}
+            >
+              GENRE
+            </button>
+          </div>
+          <button
+            className="white-text"
+            onClick={[Function]}
+          >
+            SEARCH
+          </button>
+        </div>
+      </section>
+    </Search>
+  </Connect(Search)>
+</Provider>
 `;

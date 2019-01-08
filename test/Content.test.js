@@ -2,6 +2,11 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import Content from "../src/components/Content";
 import Filter from "../src/components/Filter";
+import { Provider } from "react-redux";
+import configureMockStore from "redux-mock-store";
+
+const mockStore = configureMockStore();
+const store = mockStore({});
 
 const movieData = [{
     "id": 337167,
@@ -22,14 +27,22 @@ const movieData = [{
 }];
 
 describe('should render Content component', () => {
-    const tree = shallow(<Content movies={movieData} records={10} />);
+    const tree = shallow(
+        <Provider store={store}>
+            <Content movies={movieData} records={10} />
+        </Provider>    
+        );
     test('Snapshot test', () => {   
         expect(tree).toMatchSnapshot();
     });
 
     test('should render Content component with number of records', () => {
         const count = 10;
-        const tree = mount(<Content movies={movieData} records={count} />);
+        const tree = mount(
+            <Provider store={store}>
+                <Content movies={movieData} records={count} />
+            </Provider>
+            );
         expect(tree.find(Filter).prop('movieCount')).toEqual(count);
     });
 });

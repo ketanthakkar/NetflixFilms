@@ -1,67 +1,90 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render Header correctly Snapshot test 1`] = `
-<Header>
-  <header
-    className="header-section"
-  >
-    <Title>
-      <div
-        className="title-section"
-      >
-        <h4
-          className="netflix-text"
-        >
-          netflixroulette
-        </h4>
-      </div>
-    </Title>
-    <Search>
-      <section
-        className="search-section"
-      >
-        <h4
-          className="white-text"
-        >
-          FIND YOUR MOVIE
-        </h4>
-        <input
-          className="white-text search-title"
-          placeholder="Enter title"
-          type="text"
-        />
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Header>
+    <header
+      className="header-section"
+    >
+      <Title>
         <div
-          className="search-container"
+          className="title-section"
         >
-          <div
-            className="search-selection"
+          <h4
+            className="netflix-text"
           >
-            <label
-              className="white-text"
-            >
-              SEARCH BY
-            </label>
-            <button
-              className="white-text"
-              id="title-btn"
-            >
-              TITLE
-            </button>
-            <button
-              className="white-text"
-              id="genre-btn"
-            >
-              GENRE
-            </button>
-          </div>
-          <button
-            className="white-text"
-          >
-            SEARCH
-          </button>
+            netflixroulette
+          </h4>
         </div>
-      </section>
-    </Search>
-  </header>
-</Header>
+      </Title>
+      <Connect(Search)>
+        <Search
+          fetchMovies={[Function]}
+          filterMovies={[Function]}
+          filterMoviesBy={[Function]}
+        >
+          <section
+            className="search-section"
+          >
+            <h4
+              className="white-text"
+            >
+              FIND YOUR
+            </h4>
+            <input
+              className="white-text search-title"
+              onChange={[Function]}
+              placeholder="Enter title"
+              type="text"
+            />
+            <div
+              className="search-container"
+            >
+              <div
+                className="search-selection"
+              >
+                <label
+                  className="white-text"
+                >
+                  SEARCH BY
+                </label>
+                <button
+                  className="white-text"
+                  id="title-btn"
+                  onClick={[Function]}
+                >
+                  TITLE
+                </button>
+                <button
+                  className="white-text nonselected-color"
+                  id="genre-btn"
+                  onClick={[Function]}
+                >
+                  GENRE
+                </button>
+              </div>
+              <button
+                className="white-text"
+                onClick={[Function]}
+              >
+                SEARCH
+              </button>
+            </div>
+          </section>
+        </Search>
+      </Connect(Search)>
+    </header>
+  </Header>
+</Provider>
 `;
