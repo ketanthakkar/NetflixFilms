@@ -5,10 +5,8 @@ import Filter from "../src/components/Filter";
 import { Provider } from "react-redux";
 import configureMockStore from "redux-mock-store";
 
-const mockStore = configureMockStore();
-const store = mockStore({});
-
-const movieData = [{
+const movies = { "data": [
+    {
     "id": 337167,
     "title": "Fifty Shades Freed",
     "tagline": "Don't miss the climax",
@@ -20,31 +18,36 @@ const movieData = [{
     "budget": 55000000,
     "revenue": 136906000,
     "genres": [
-    "Drama",
-    "Romance"
+        "Drama",
+        "Romance"
     ],
     "runtime": 106
-}];
+    }
+]
+}
+
+const mockState = {
+    sortBy: 'release_date',
+    movies: {
+      movieData: movies.data,
+      movieCount: movies.data.length,
+      status: 'RECEIVE_MOVIES'
+    }
+};
+  
+  const mockStore = configureMockStore();
+  const store = mockStore(mockState);
 
 describe('should render Content component', () => {
     const tree = shallow(
         <Provider store={store}>
-            <Content movies={movieData} records={10} />
+            <Content movies={movies.data} />
         </Provider>    
         );
     test('Snapshot test', () => {   
         expect(tree).toMatchSnapshot();
     });
 
-    test('should render Content component with number of records', () => {
-        const count = 10;
-        const tree = mount(
-            <Provider store={store}>
-                <Content movies={movieData} records={count} />
-            </Provider>
-            );
-        expect(tree.find(Filter).prop('movieCount')).toEqual(count);
-    });
 });
 
 

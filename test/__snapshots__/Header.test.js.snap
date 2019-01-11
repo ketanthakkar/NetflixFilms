@@ -30,6 +30,7 @@ exports[`should render Header correctly Snapshot test 1`] = `
       </Title>
       <Connect(Search)>
         <Search
+          activeSearchBy="title"
           fetchMovies={[Function]}
           filterMovies={[Function]}
           filterMoviesBy={[Function]}

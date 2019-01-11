@@ -23,6 +23,5 @@ exports[`should render Content component Snapshot test 1`] = `
       },
     ]
   }
-  records={10}
 />
 `;

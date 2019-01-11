@@ -20,25 +20,25 @@ export const filterMovies = (searchStr) => ({
     searchStr
 })
 
-export const filterMoviesBy = (searchby) => ({
+export const filterMoviesBy = (searchBy) => ({
     type: FILTER_MOVIES_BY,
-    searchby
+    searchBy
 })
 
-export const sortMovies = (sortby) => ({
+export const sortMovies = (sortBy) => ({
     type: SORT_MOVIES,
-    sortby
+    sortBy
 })
 
-const requestUrl = (getState) => {
+export const requestUrl = (getState) => {
     const state = getState();
     const url = "http://react-cdp-api.herokuapp.com/movies";
     
     const searchStr = state.search.searchStr != "" ? `?search=${state.search.searchStr}` : "";
-    const searchBy = state.search.searchStr != "" ? `&searchBy=${state.search.searchby}` : "";
+    const searchBy = state.search.searchStr != "" ? `&searchBy=${state.search.searchBy}` : "";
     
-    const sortBy = state.sortBy.sortby != "" ? (state.search.searchStr != "" ? `&sortBy=${state.sortBy.sortby}` : `?sortBy=${state.sortBy.sortby}` ) : ""
-    const order = state.sortBy.sortby != "" ? "&sortOrder=desc" : "";
+    const sortBy = state.sortBy.sortBy != "" ? (state.search.searchStr != "" ? `&sortBy=${state.sortBy.sortBy}` : `?sortBy=${state.sortBy.sortBy}` ) : ""
+    const order = state.sortBy.sortBy != "" ? "&sortOrder=desc" : "";
 
     return `${url}${searchStr}${searchBy}${sortBy}${order}`;
 }
@@ -46,7 +46,7 @@ const requestUrl = (getState) => {
 export const fetchMovies = () => (dispatch, getState) => {
     dispatch(requestMovies())
     const url = requestUrl(getState);
-
+    
     return fetch(url)
     .then(response => response.json())
     .then(result => {

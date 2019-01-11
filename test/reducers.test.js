@@ -15,10 +15,10 @@ describe('Search reducers', () => {
     it('should handle FILTER_MOVIES_BY', () => {
         const mock = {
           type: actionsTypes.FILTER_MOVIES_BY,
-          searchby: 'Title'
+          searchBy: 'Title'
         };
         
-        expect(reducerTypes.search({}, mock)).toStrictEqual({searchby: 'Title'});
+        expect(reducerTypes.search({}, mock)).toStrictEqual({searchBy: 'Title'});
     });
 });
 
@@ -27,10 +27,10 @@ describe('Sort reducers', () => {
     it('should handle SORT_MOVIES', () => {
       const mock = {
         type: actionsTypes.SORT_MOVIES,
-        sortby: 'release_date'
+        sortBy: 'release_date'
       };
       
-      expect(reducerTypes.sortBy({}, mock)).toStrictEqual({sortby: 'release_date'});
+      expect(reducerTypes.sortBy({}, mock)).toStrictEqual({sortBy: 'release_date'});
     });
 
 });

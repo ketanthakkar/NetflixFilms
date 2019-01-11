@@ -14,13 +14,13 @@ class Main extends Component {
         await this.props.fetchMovies();
     }
 
-    render() {        
+    render() {   
         return ( 
             <div className="main">
                 <Header />  
                 { this.props.movies.length > 0 && 
                     <ErrorBoundary>
-                        <Content movies={ this.props.movies } records={ this.props.movies.length } />
+                        <Content movies={ this.props.movies } />
                     </ErrorBoundary> 
                 }
                 <Footer />
@@ -30,17 +30,15 @@ class Main extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({
+const mapDispatchToProps = {
       fetchMovies
-    }, dispatch);
   }
   
   const mapStateToProps = (state) => {
     return {
       movies: state.movies.movieData,
-      searchby: state.search.searchby,
-      sortby: state.sortby
+      searchby: state.search.searchBy,
+      sortby: state.sortBy.sortBy
     };
   };
   
