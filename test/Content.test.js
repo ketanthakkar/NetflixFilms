@@ -1,9 +1,6 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
-import Content from "../src/components/Content";
-import Filter from "../src/components/Filter";
-import { Provider } from "react-redux";
-import configureMockStore from "redux-mock-store";
+import { shallow } from 'enzyme';
+import { Content as MovieContent } from "../src/components/Content";
 
 const movies = { "data": [
     {
@@ -26,23 +23,9 @@ const movies = { "data": [
 ]
 }
 
-const mockState = {
-    sortBy: 'release_date',
-    movies: {
-      movieData: movies.data,
-      movieCount: movies.data.length,
-      status: 'RECEIVE_MOVIES'
-    }
-};
-  
-  const mockStore = configureMockStore();
-  const store = mockStore(mockState);
-
 describe('should render Content component', () => {
     const tree = shallow(
-        <Provider store={store}>
-            <Content movies={movies.data} />
-        </Provider>    
+            <MovieContent movies={movies.data} />
         );
     test('Snapshot test', () => {   
         expect(tree).toMatchSnapshot();

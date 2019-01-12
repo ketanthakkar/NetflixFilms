@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { sortMovies, fetchMovies } from '../actions/index'
 import PropTypes from 'prop-types';
 
-class Filter extends Component {
+export class Filter extends Component {
 
     handleSortClick = (event) => {
         const sortBy = event.target.id === "release" ? "release_date" : "vote_average";

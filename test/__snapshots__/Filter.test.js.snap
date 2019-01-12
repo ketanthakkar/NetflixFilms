@@ -1,7 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should renders Filter correctly Snapshot test 1`] = `
-<Connect(Filter)
-  movieCount={10}
-/>
+<section
+  className="filter-container"
+>
+  <span
+    className="results"
+  >
+    10
+     movies found
+  </span>
+  <div
+    className="sort-detail"
+  >
+    <span>
+      Sort by
+    </span>
+    <span
+      className=""
+      id="release"
+      onClick={[Function]}
+    >
+      release date
+    </span>
+    <span
+      className=""
+      id="rating"
+      onClick={[Function]}
+    >
+      rating
+    </span>
+  </div>
+</section>
 `;

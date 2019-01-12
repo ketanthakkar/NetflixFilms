@@ -1,20 +1,19 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Filter from "../src/components/Filter";
-import { Provider } from "react-redux";
-import configureMockStore from "redux-mock-store";
-
-const mockStore = configureMockStore();
-const store = mockStore({});
+import { Filter as SearchComponent } from "../src/components/Filter";
 
 describe('should renders Filter correctly', () => {
   
   test('Snapshot test', () => {
     const tree = shallow(
-      <Provider store={store}>
-        <Filter movieCount={10}/>
-      </Provider>);
+        <SearchComponent movieCount={10}/>
+      );
     expect(tree).toMatchSnapshot();
+  });
+
+  test('should render Filter component with movieCount', () => {
+    const tree = shallow(<SearchComponent movieCount={10}/>);
+    expect(tree.find('.results').text()).toEqual(`10 movies found`);
   });
 
 });
