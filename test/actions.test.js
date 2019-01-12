@@ -1,4 +1,34 @@
 import * as moviesActions from '../src/actions';
+import fetchMock from 'fetch-mock'
+import thunk from 'redux-thunk'
+import configureMockStore from 'redux-mock-store'
+
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
+
+const mockState = {
+    search: {
+        searchBy: "title",
+        searchStr: "fifty"
+    },
+    sortBy: "release_date",
+    movies: {
+        movieData: ['fifty'],
+    }
+}
+
+const buildMockStore = () => {
+    return mockStore({
+        search: {
+            searchBy: "title",
+            searchStr: "fifty"
+            },
+            sortBy: "release_date",
+            movies: {
+                movieData: [],
+            }
+    });
+};
 
 describe('moviesActions', () => {
     test('should create action to get movies', () => {
@@ -54,5 +84,28 @@ describe('moviesActions', () => {
         const URL = `http://react-cdp-api.herokuapp.com/movies?search=fifty&searchBy=title&sortBy=release_date&sortOrder=desc`;
     
         expect(moviesActions.requestUrl(getState)).toEqual(URL);
+    });
+
+    it('should call receiveMovies on success', () => {
+
+        fetchMock.getOnce('http://react-cdp-api.herokuapp.com/movies?search=fifty&searchBy=title&sortBy=undefined&sortOrder=desc', {
+            body: mockState,
+            headers: { 'content-type': 'application/json' }
+          })
+
+        const store = buildMockStore();
+        const response = {
+            mockData: mockState
+        };
+    
+        const expected = [
+            moviesActions.requestMovies(),
+            moviesActions.receiveMovies(response)
+        ];
+    
+        return store.dispatch(moviesActions.fetchMovies())
+          .then(() => {
+            expect(store.getActions()).toEqual(expected);
+          });
     });
 })
