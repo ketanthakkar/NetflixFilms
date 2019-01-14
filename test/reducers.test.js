@@ -37,11 +37,20 @@ describe('Sort reducers', () => {
 
 describe('movie reducers', () => {
 
-    it('should handle RECEIVE_MOVIES', () => {
+    it('should handle REQUEST_MOVIES', () => {
         const mock = {
           type: actionsTypes.REQUEST_MOVIES, 
         };
         
         expect(reducerTypes.movies({}, mock)).toStrictEqual({});
     });
+
+    it('should handle RECEIVE_MOVIES', () => {
+      const mock = {
+        type: actionsTypes.RECEIVE_MOVIES,
+        movies:  [{ "title":'fifty'}, { "title":'transporter'}]
+      };
+      
+      expect(reducerTypes.movies({}, mock)).toStrictEqual({movieData: [{ "title":'fifty'}, { "title":'transporter'}]});
+  });
 });

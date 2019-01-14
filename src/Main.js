@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { fetchMovies } from './actions/index';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import Header from './components/Header';
 import Content from './components/Content';
 import Footer from './components/Footer';
@@ -32,15 +31,15 @@ class Main extends Component {
 
 const mapDispatchToProps = {
       fetchMovies
-  }
+}
   
-  const mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
     return {
-      movies: state.movies.movieData,
-      searchby: state.search.searchBy,
-      sortby: state.sortBy.sortBy
+        movies: state.movies.movieData,
+        searchby: state.search.searchBy,
+        sortby: state.sortBy.sortBy
     };
-  };
+};
   
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
