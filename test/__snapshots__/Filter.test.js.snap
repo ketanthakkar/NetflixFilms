@@ -16,10 +16,18 @@ exports[`should renders Filter correctly Snapshot test 1`] = `
     <span>
       Sort by
     </span>
-    <span>
+    <span
+      className=""
+      id="release"
+      onClick={[Function]}
+    >
       release date
     </span>
-    <span>
+    <span
+      className=""
+      id="rating"
+      onClick={[Function]}
+    >
       rating
     </span>
   </div>

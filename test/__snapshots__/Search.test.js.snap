@@ -8,10 +8,11 @@ exports[`should render Search correctly Snapshot test 1`] = `
     <h4
       className="white-text"
     >
-      FIND YOUR MOVIE
+      FIND YOUR
     </h4>
     <input
       className="white-text search-title"
+      onChange={[Function]}
       placeholder="Enter title"
       type="text"
     />
@@ -27,14 +28,16 @@ exports[`should render Search correctly Snapshot test 1`] = `
           SEARCH BY
         </label>
         <button
-          className="white-text"
+          className="white-text nonselected-color"
           id="title-btn"
+          onClick={[Function]}
         >
           TITLE
         </button>
         <button
-          className="white-text"
+          className="white-text nonselected-color"
           id="genre-btn"
+          onClick={[Function]}
         >
           GENRE
         </button>

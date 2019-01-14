@@ -2,9 +2,7 @@
 
 exports[`should render Content component Snapshot test 1`] = `
 <Fragment>
-  <Filter
-    movieCount={10}
-  />
+  <Connect(Filter) />
   <main
     className="moviedata-container"
   >
