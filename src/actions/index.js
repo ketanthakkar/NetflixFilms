@@ -4,9 +4,9 @@ export const FILTER_MOVIES = 'FILTER_MOVIES'
 export const FILTER_MOVIES_BY = 'FILTER_MOVIES_BY'
 export const SORT_MOVIES = 'SORT_MOVIES'
 
-export const requestMovies = () => ({
+export const requestMovies = {
     type: REQUEST_MOVIES
-})
+}
 
 export const receiveMovies = (json) => {
     return ({
@@ -44,7 +44,7 @@ export const requestUrl = (getState) => {
 }
 
 export const fetchMovies = () => (dispatch, getState) => {
-    dispatch(requestMovies())
+    dispatch(requestMovies)
     const url = requestUrl(getState);
     
     return fetch(url)

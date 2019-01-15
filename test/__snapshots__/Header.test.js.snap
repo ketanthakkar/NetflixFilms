@@ -1,91 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render Header correctly Snapshot test 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
+<header
+  className="header-section"
 >
-  <Header>
-    <header
-      className="header-section"
-    >
-      <Title>
-        <div
-          className="title-section"
-        >
-          <h4
-            className="netflix-text"
-          >
-            netflixroulette
-          </h4>
-        </div>
-      </Title>
-      <Connect(Search)>
-        <Search
-          activeSearchBy="title"
-          fetchMovies={[Function]}
-          filterMovies={[Function]}
-          filterMoviesBy={[Function]}
-        >
-          <section
-            className="search-section"
-          >
-            <h4
-              className="white-text"
-            >
-              FIND YOUR
-            </h4>
-            <input
-              className="white-text search-title"
-              onChange={[Function]}
-              placeholder="Enter title"
-              type="text"
-            />
-            <div
-              className="search-container"
-            >
-              <div
-                className="search-selection"
-              >
-                <label
-                  className="white-text"
-                >
-                  SEARCH BY
-                </label>
-                <button
-                  className="white-text"
-                  id="title-btn"
-                  onClick={[Function]}
-                >
-                  TITLE
-                </button>
-                <button
-                  className="white-text nonselected-color"
-                  id="genre-btn"
-                  onClick={[Function]}
-                >
-                  GENRE
-                </button>
-              </div>
-              <button
-                className="white-text"
-                onClick={[Function]}
-              >
-                SEARCH
-              </button>
-            </div>
-          </section>
-        </Search>
-      </Connect(Search)>
-    </header>
-  </Header>
-</Provider>
+  <Title />
+  <Connect(Search) />
+</header>
 `;

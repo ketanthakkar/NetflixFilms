@@ -3,7 +3,7 @@ import { fetchMovies, filterMovies, filterMoviesBy } from '../actions/index';
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 
-class Search extends Component {
+export class Search extends Component {
 
     handleSearchClick = (event) => {
        const filterBy = event.target.id === "genre-btn" ? "genres" : "title"

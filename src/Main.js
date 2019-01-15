@@ -26,15 +26,15 @@ class Main extends Component {
 
 const mapDispatchToProps = {
       fetchMovies
-  }
+}
   
-  const mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
     return {
-      movies: state.movies.movieData,
-      searchby: state.search.searchBy,
-      sortby: state.sortBy.sortBy
+        movies: state.movies.movieData,
+        searchby: state.search.searchBy,
+        sortby: state.sortBy.sortBy
     };
-  };
+};
   
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

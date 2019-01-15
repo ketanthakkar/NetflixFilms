@@ -99,7 +99,7 @@ describe('moviesActions', () => {
         };
     
         const expected = [
-            moviesActions.requestMovies(),
+            moviesActions.requestMovies,
             moviesActions.receiveMovies(response)
         ];
     
