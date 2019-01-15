@@ -1,30 +1,40 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Title from './Title';
 import Footer from './Footer';
 import Content from './Content';
+import { connect } from 'react-redux';
 
-const Movie = ({ movie }) => {
-    return (
-        <article className="movie-container">
-            <header className="header-section">
-                <Title />
-            </header>
-            <section className="movie-poster">
-                <img className="movie-img" src={movie[0].poster_path} alt={movie[0].tagline} />
-                <div className="movie-detail">
-                    <span className="movie-title">{movie[0].title.toUpperCase()}</span>
-                    <span className="movie-genres">{movie[0].genres.join(" & ")}</span>
-                    <div>
-                        <span className="movie-year">{movie[0].release_date}</span>
-                        <span className="movie-length">{`${movie[0].runtime} min`}</span>
-                    </div>
-                    <p className="movie-description">{movie[0].overview}</p>
-                </div>    
-            </section>
-            <Content movies={ movie } />
-            <Footer />
-        </article>
-    )
+class Movie extends Component {
+
+    render() {
+        const movie = this.props.movies.movieData.find(movieData => movieData.id === parseInt(this.props.match.params.id) )
+
+        return (
+            <article className="movie-container">
+                <header className="header-section">
+                    <Title />
+                </header>
+                <section className="movie-poster">
+                    <img className="movie-img" src={movie.poster_path} alt={movie.tagline} />
+                    <div className="movie-detail">
+                        <span className="movie-title">{movie.title.toUpperCase()}</span>
+                        <span className="movie-genres">{movie.genres.join(" & ")}</span>
+                        <div>
+                            <span className="movie-year">{movie.release_date}</span>
+                            <span className="movie-length">{`${movie.runtime} min`}</span>
+                        </div>
+                        <p className="movie-description">{movie.overview}</p>
+                    </div>    
+                </section>
+                <Content movies={ movie } nosearch="nosearch" />
+                <Footer />
+            </article>
+        )
+    }
 }
 
-export default Movie;
+const mapStateToProps = (state) => ({
+    movies: state.movies,
+});
+
+export default connect(mapStateToProps, null)(Movie);
