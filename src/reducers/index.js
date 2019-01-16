@@ -1,7 +1,7 @@
-import { REQUEST_MOVIES, RECEIVE_MOVIES, FILTER_MOVIES, FILTER_MOVIES_BY, SORT_MOVIES } from '../actions';
+import { REQUEST_MOVIES, RECEIVE_MOVIES, RECEIVE_MOVIES_DETAIL, FILTER_MOVIES, FILTER_MOVIES_BY, SORT_MOVIES } from '../actions';
 import { combineReducers } from 'redux';
 
-export const movies = (state = {movieData: []}, action) => {
+export const movies = (state = {movieData: [], movie: null}, action) => {
 
     switch(action.type) {
         case REQUEST_MOVIES:
@@ -12,6 +12,12 @@ export const movies = (state = {movieData: []}, action) => {
                 ...state,
                 movieData: action.movies
             }
+
+        case RECEIVE_MOVIES_DETAIL:
+            return {
+                ...state,
+                movie: action.movie,
+            } 
             
         default:
             return state;

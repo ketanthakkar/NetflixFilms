@@ -6,7 +6,7 @@ const MovieItem = ({movieItem}) => {
     return (
         <section className="movieitem-container">
             <figure>
-                <Link to={`/film/ ${movieItem.id}`}>
+                <Link to={`/film/${movieItem.id}`}>
                     <img className="movieitem-img" src={movieItem.poster_path} alt={movieItem.tagline}/>
                 </Link>
                 <figcaption className="movieitem-detail">

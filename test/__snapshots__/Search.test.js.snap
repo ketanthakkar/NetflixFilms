@@ -69,10 +69,10 @@ exports[`should render Search correctly Snapshot test 1`] = `
           </div>
           <Link
             replace={false}
-            to="/search/Search undefined"
+            to="/search/undefined"
           >
             <a
-              href="/search/Search undefined"
+              href="/search/undefined"
               onClick={[Function]}
             >
               <button

@@ -52,10 +52,10 @@ exports[`should renders MovieItem correctly Snapshot test 1`] = `
         <figure>
           <Link
             replace={false}
-            to="/film/ 337167"
+            to="/film/337167"
           >
             <a
-              href="/film/ 337167"
+              href="/film/337167"
               onClick={[Function]}
             >
               <img

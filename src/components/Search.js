@@ -28,7 +28,7 @@ export class Search extends Component {
                         <button id="title-btn" className={activeSearchBy === 'title' ? 'white-text' : 'white-text nonselected-color'} onClick={this.handleSearchClick}>TITLE</button>
                         <button id="genre-btn" className={activeSearchBy === 'genres' ? 'white-text' : 'white-text nonselected-color'} onClick={this.handleSearchClick}>GENRE</button>
                     </div>
-                    <Link to={`/search/Search ${searchStr}`}>
+                    <Link to={`/search/${encodeURIComponent(searchStr)}`}>
                         <button className="white-text" onClick={this.props.fetchMovies}>SEARCH</button>
                     </Link>    
                 </div>

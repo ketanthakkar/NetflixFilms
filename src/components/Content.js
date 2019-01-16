@@ -6,15 +6,24 @@ import Header from './Header';
 import Footer from './Footer';
 import { connect } from 'react-redux';
 import NoMovieFound from './NoMovieFound';
+import PropTypes from 'prop-types';
+import { fetchSearchedMovies } from '../actions/index'
 
-export class Content extends Component {
+class Content extends Component {
+
+    componentDidMount() {
+        
+        if(this.props.match) {
+            this.props.fetchSearchedMovies(this.props.match.params.query);
+        }
+    }
 
     render() {
-        const { movies, nosearch } = this.props;
+        const { movies, showSearch } = this.props;
         
         return (
             <React.Fragment>
-                {nosearch !== "nosearch" && <Header /> } 
+                {showSearch && <Header /> } 
                 <ErrorBoundary>
                     {movies.length > 0 &&
                         <React.Fragment>
@@ -27,14 +36,25 @@ export class Content extends Component {
                     }
                     {movies.length <= 0 && <NoMovieFound /> }
                 </ErrorBoundary>    
-                {nosearch !== "nosearch" && <Footer /> }
+                {showSearch && <Footer /> }
             </React.Fragment>
         );
     }
 }
 
+Content.propTypes = {
+    showSearch: PropTypes.bool
+};
+
+Content.defaultProps = {
+    showSearch: true
+};
+
+const mapDispatchToProps = { fetchSearchedMovies };
+
 const mapStateToProps = (state) => ({
     movies: state.movies.movieData,
 });
 
-export default connect(mapStateToProps, null)(Content);
+export { Content }; 
+export default connect(mapStateToProps, mapDispatchToProps)(Content);
