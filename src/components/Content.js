@@ -34,7 +34,7 @@ class Content extends Component {
                             </main>
                         </React.Fragment>
                     }
-                    {movies.length <= 0 && <NoMovieFound /> }
+                    { movies.length <= 0 && <NoMovieFound /> }
                 </ErrorBoundary>    
                 {showSearch && <Footer /> }
             </React.Fragment>

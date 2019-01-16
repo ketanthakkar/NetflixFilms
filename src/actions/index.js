@@ -47,13 +47,13 @@ export const requestUrl = (getState) => {
 }
 
 export const getUrl = (searchStr, searchBy, sortBy) => {
-    const pharse = searchStr != "" ? `?search=${searchStr}` : "";
+    const phrase = searchStr != "" ? `?search=${searchStr}` : "";
     const searchType = searchStr != "" ? `&searchBy=${searchBy}` : "";
     
-    const sortVal = sortBy != "" ? (pharse != "" ? `&sortBy=${sortBy}` : `?sortBy=${sortBy}` ) : ""
+    const sortVal = sortBy != "" ? (phrase != "" ? `&sortBy=${sortBy}` : `?sortBy=${sortBy}` ) : ""
     const order = sortBy != "" ? "&sortOrder=desc" : "";
 
-    return `${url}${pharse}${searchType}${sortVal}${order}`;
+    return `${url}${phrase}${searchType}${sortVal}${order}`;
 };
 
 export const fetchMovies = () => (dispatch, getState) => {
@@ -82,9 +82,9 @@ export const fetchMovieDetail = (movieId) => (dispatch, getState) => {
       }))
 }
 
-export const fetchSearchedMovies = (pharse) => (dispatch, getState) => {
+export const fetchSearchedMovies = (phrase) => (dispatch, getState) => {
     
-    return fetch(getUrl(pharse, "title", "release_date"))
+    return fetch(getUrl(phrase, "title", "release_date"))
     .then(response => response.json())
     .then(result => {
         dispatch(receiveMovies(result))

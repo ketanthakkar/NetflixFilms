@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import MovieItem from "../src/components/MovieItem";
-import { BrowserRouter as Router } from 'react-router-dom';
+import { MemoryRouter as Router } from 'react-router-dom';
 
 describe('should renders MovieItem correctly', () => {
     const movieData = {
