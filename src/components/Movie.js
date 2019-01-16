@@ -8,7 +8,12 @@ import { fetchMovieDetail } from '../actions/index'
 export class Movie extends Component {
 
     componentDidMount() {
-        
+        if(this.props.match) {
+            this.props.fetchMovieDetail(this.props.match.params.id);
+        }
+    }
+
+    componentDidUpdate() {
         if(this.props.match) {
             this.props.fetchMovieDetail(this.props.match.params.id);
         }
