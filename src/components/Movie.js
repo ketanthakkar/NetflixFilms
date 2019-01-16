@@ -4,10 +4,10 @@ import Footer from './Footer';
 import Content from './Content';
 import { connect } from 'react-redux';
 
-class Movie extends Component {
+export class Movie extends Component {
 
     render() {
-        const movie = this.props.movies.movieData.find(movieData => movieData.id === parseInt(this.props.match.params.id) )
+        const { movie } = this.props;
 
         return (
             <article className="movie-container">
@@ -33,8 +33,8 @@ class Movie extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({
-    movies: state.movies,
+const mapStateToProps = (state, pageProps) => ({
+    movie: state.movies.movieData.find(movieData => movieData.id === parseInt(pageProps.match.params.id))
 });
 
 export default connect(mapStateToProps, null)(Movie);

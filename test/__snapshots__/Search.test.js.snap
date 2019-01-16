@@ -1,53 +1,90 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render Search correctly Snapshot test 1`] = `
-<Search>
-  <section
-    className="search-section"
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
   >
-    <h4
-      className="white-text"
+    <Search
+      onSearch={[Function]}
     >
-      FIND YOUR
-    </h4>
-    <input
-      className="white-text search-title"
-      onChange={[Function]}
-      placeholder="Enter title"
-      type="text"
-    />
-    <div
-      className="search-container"
-    >
-      <div
-        className="search-selection"
+      <section
+        className="search-section"
       >
-        <label
+        <h4
           className="white-text"
         >
-          SEARCH BY
-        </label>
-        <button
-          className="white-text nonselected-color"
-          id="title-btn"
-          onClick={[Function]}
+          FIND YOUR MOVIE
+        </h4>
+        <input
+          className="white-text search-title"
+          onChange={[Function]}
+          placeholder="Enter title/genre"
+          type="text"
+        />
+        <div
+          className="search-container"
         >
-          TITLE
-        </button>
-        <button
-          className="white-text nonselected-color"
-          id="genre-btn"
-          onClick={[Function]}
-        >
-          GENRE
-        </button>
-      </div>
-      <button
-        className="white-text"
-      >
-        SEARCH
-      </button>
-    </div>
-  </section>
-</Search>
+          <div
+            className="search-selection"
+          >
+            <label
+              className="white-text"
+            >
+              SEARCH BY
+            </label>
+            <button
+              className="white-text nonselected-color"
+              id="title-btn"
+              onClick={[Function]}
+            >
+              TITLE
+            </button>
+            <button
+              className="white-text nonselected-color"
+              id="genre-btn"
+              onClick={[Function]}
+            >
+              GENRE
+            </button>
+          </div>
+          <Link
+            replace={false}
+            to="/search/Search undefined"
+          >
+            <a
+              href="/search/Search undefined"
+              onClick={[Function]}
+            >
+              <button
+                className="white-text"
+              >
+                SEARCH
+              </button>
+            </a>
+          </Link>
+        </div>
+      </section>
+    </Search>
+  </Router>
+</BrowserRouter>
 `;
