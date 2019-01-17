@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import MovieItem from "../src/components/MovieItem";
+import { MemoryRouter as Router } from 'react-router-dom';
 
 describe('should renders MovieItem correctly', () => {
     const movieData = {
@@ -20,7 +21,7 @@ describe('should renders MovieItem correctly', () => {
         ],
         "runtime": 106
     }; 
-  const tree = mount(<MovieItem key={ movieData.id } movieItem={ movieData }/>);
+  const tree = mount(<Router><MovieItem key={ movieData.id } movieItem={ movieData }/></Router>);
   test('Snapshot test', () => {
     expect(tree).toMatchSnapshot();
   });

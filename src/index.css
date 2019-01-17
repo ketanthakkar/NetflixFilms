@@ -26,6 +26,10 @@ body {
     color: white;
 }
 
+.red-text {
+    color: red;
+}
+
 .header-section {
     background-color: rgba(0, 0, 0, 1);
 }
@@ -185,4 +189,13 @@ button {
 
 .nonselected-color {
     background-color: #3c3c3c;
+}
+
+.nofound-content {
+    height: 600px;
+    text-align: center;
+}
+
+.nofound-text {
+    line-height: 600px;
 }

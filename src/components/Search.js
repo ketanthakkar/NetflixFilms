@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { fetchMovies, filterMovies, filterMoviesBy } from '../actions/index';
 import { connect } from 'react-redux';
+import { Link } from "react-router-dom";
 
 export class Search extends Component {
 
@@ -14,12 +15,12 @@ export class Search extends Component {
       }
 
     render() {
-        const { activeSearchBy } = this.props;
-
+        const { activeSearchBy, searchStr } = this.props;
+        
         return (
             <section className="search-section">
-                <h4 className="white-text">FIND YOUR</h4>
-                <input type="text" placeholder="Enter title" className="white-text search-title"
+                <h4 className="white-text">FIND YOUR MOVIE</h4>
+                <input type="text" placeholder="Enter title/genre" className="white-text search-title"
                         onChange={this.handleChange}></input>
                 <div className="search-container">
                     <div className="search-selection">
@@ -27,7 +28,9 @@ export class Search extends Component {
                         <button id="title-btn" className={activeSearchBy === 'title' ? 'white-text' : 'white-text nonselected-color'} onClick={this.handleSearchClick}>TITLE</button>
                         <button id="genre-btn" className={activeSearchBy === 'genres' ? 'white-text' : 'white-text nonselected-color'} onClick={this.handleSearchClick}>GENRE</button>
                     </div>
-                    <button className="white-text" onClick={this.props.fetchMovies}>SEARCH</button>
+                    <Link to={`/search/${encodeURIComponent(searchStr)}`}>
+                        <button className="white-text" onClick={this.props.fetchMovies}>SEARCH</button>
+                    </Link>    
                 </div>
             </section>
             )
@@ -36,7 +39,12 @@ export class Search extends Component {
 
 const mapStateToProps = (state) => ({
     activeSearchBy: state.search.searchBy,
+    searchStr: state.search.searchStr,
 });
+
+Search.defaultProps = {
+    onSearch: () => { },
+  };
 
 const mapDispatchToProps = {
         fetchMovies,
