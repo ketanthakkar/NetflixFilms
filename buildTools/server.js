@@ -12,7 +12,7 @@ const port = 4000;
 
 app.use(express.static('dist'));
 
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
     const store = createStore(rootReducer)
 
     const html = renderToString(
@@ -38,7 +38,7 @@ function renderFullPage(html, preloadedState) {
         <script>
           window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g,'\\u003c')}
         </script>
-        <script src="./bundle.js"></script>
+        <script src="../src/index.js"></script>
       </body>
     </html>
     `
