@@ -3,17 +3,19 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const nodeExternals = require('webpack-node-externals');
 
-module.exports = function (env, options) {
-  const isProduction = env === "prod";
-
+const isProduction = process.env === "prod";
+  
   const config = {
     context: path.join(__dirname, "src"),
     entry: "./",
     mode: isProduction ? "production" : "development",
     devtool: isProduction ? "none" : "source-map",
     output: {
-      publicPath: '/'
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'bundle.js',
+      publicPath: '/',
     },
     
     resolve: {
@@ -75,5 +77,26 @@ module.exports = function (env, options) {
     }
   };
 
-  return config;
-};
+var serverConfig = {
+  entry: "./buildTools/server.js",
+  target: 'node',
+  externals: [nodeExternals()],
+  mode: isProduction ? "production" : "development",
+  devtool: isProduction ? "none" : "source-map",
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'server.js',
+    publicPath: '/',
+  },
+  module: {
+    rules: [
+    {
+      test: /\.js|jsx$/,
+      loader: "babel-loader",
+      exclude: /node_modules/,
+    },
+    ]
+  },
+}
+
+module.exports = [config, serverConfig]

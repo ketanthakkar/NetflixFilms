@@ -4,15 +4,15 @@ import rootReducer from '../src/reducers'
 import Main from '../src/Main';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { renderToString } from 'react-dom/server'
-import { fetchMovieDetail } from '../src/actions/index'
+import { renderToString } from 'react-dom/server';
+import React from 'react';
 
 var app = express();
 const port = 4000;
 
 app.use(express.static('dist'));
 
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
     const store = createStore(rootReducer)
 
     const html = renderToString(
@@ -38,7 +38,7 @@ function renderFullPage(html, preloadedState) {
         <script>
           window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g,'\\u003c')}
         </script>
-        <script src="../src/index.js"></script>
+        <script src="/bundle.js"></script>
       </body>
     </html>
     `
