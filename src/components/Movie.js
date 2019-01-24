@@ -13,9 +13,12 @@ export class Movie extends Component {
         }
     }
 
-    componentDidUpdate() {
+    componentDidUpdate(prevProps) {
         if(this.props.match) {
-            this.props.fetchMovieDetail(this.props.match.params.id);
+            const { id } = this.props.match.params;
+            if (id !== prevProps.match.params.id) {
+                this.props.fetchMovieDetail(this.props.match.params.id);
+            }
         }
     }
 
