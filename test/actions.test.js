@@ -21,7 +21,7 @@ const buildMockStore = () => {
     return mockStore({
         search: {
             searchBy: "title",
-            searchStr: "fifty"
+            searchStr: "moviename"
             },
             sortBy: "release_date",
             movies: {
@@ -88,7 +88,7 @@ describe('moviesActions', () => {
 
     it('should call receiveMovies on success', () => {
 
-        fetchMock.getOnce('http://react-cdp-api.herokuapp.com/movies?search=fifty&searchBy=title&sortBy=undefined&sortOrder=desc', {
+        fetchMock.getOnce('http://react-cdp-api.herokuapp.com/movies?search=fifty&searchBy=title&sortBy=release_date&sortOrder=desc', {
             body: mockState,
             headers: { 'content-type': 'application/json' }
           })

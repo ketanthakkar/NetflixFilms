@@ -16,7 +16,7 @@ export const requestMovies = {
 export const receiveMovies = (json) => {
     return ({
         type: RECEIVE_MOVIES,
-        movies: json.data
+        movies: json.data === undefined ? [] : json.data,
     });
 };
 
