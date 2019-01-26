@@ -7,12 +7,17 @@ import Footer from './Footer';
 import { connect } from 'react-redux';
 import NoMovieFound from './NoMovieFound';
 import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router';
 import { fetchSearchedMovies } from '../actions/index'
 
 class Content extends Component {
 
+    static fetchData(dispatch, match) {
+        return dispatch(fetchSearchedMovies(match.params.query));
+    }
+
     componentDidMount() {
-        
         if(this.props.match) {
             this.props.fetchSearchedMovies(this.props.match.params.query);
         }
@@ -50,11 +55,13 @@ Content.defaultProps = {
     showSearch: true
 };
 
-const mapDispatchToProps = { fetchSearchedMovies };
+const mapDispatchToProps = dispatch => bindActionCreators({
+    fetchSearchedMovies
+}, dispatch);
 
 const mapStateToProps = (state) => ({
     movies: state.movies.movieData,
 });
 
 export { Content }; 
-export default connect(mapStateToProps, mapDispatchToProps)(Content);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Content));

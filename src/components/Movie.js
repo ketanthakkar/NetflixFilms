@@ -3,9 +3,15 @@ import Title from './Title';
 import Footer from './Footer';
 import Content from './Content';
 import { connect } from 'react-redux';
-import { fetchMovieDetail } from '../actions/index'
+import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router';
+import { fetchMovieDetail } from '../actions'
 
 export class Movie extends Component {
+    
+    static fetchData(dispatch, match) {
+        return dispatch(fetchMovieDetail(match.params.id));
+    }
 
     componentDidMount() {
         if(this.props.match) {
@@ -51,10 +57,12 @@ export class Movie extends Component {
     }
 }
 
-const mapDispatchToProps = { fetchMovieDetail };
+const mapDispatchToProps = dispatch => bindActionCreators({
+    fetchMovieDetail
+  }, dispatch);
 
 const mapStateToProps = (state) => ({
     movie:  state.movies.movie,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Movie);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Movie));
