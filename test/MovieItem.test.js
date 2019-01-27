@@ -21,7 +21,7 @@ describe('should renders MovieItem correctly', () => {
         ],
         "runtime": 106
     }; 
-  const tree = mount(<Router><MovieItem key={ movieData.id } movieItem={ movieData }/></Router>);
+  const tree = mount(<Router keyLength={0}><MovieItem key={ movieData.id } movieItem={ movieData }/></Router>);
   test('Snapshot test', () => {
     expect(tree).toMatchSnapshot();
   });

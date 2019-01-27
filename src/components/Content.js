@@ -55,9 +55,7 @@ Content.defaultProps = {
     showSearch: true
 };
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-    fetchSearchedMovies
-}, dispatch);
+const mapDispatchToProps = { fetchSearchedMovies };
 
 const mapStateToProps = (state) => ({
     movies: state.movies.movieData,
