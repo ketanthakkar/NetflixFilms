@@ -1,3 +1,5 @@
+import fetch from 'isomorphic-fetch'
+
 export const REQUEST_MOVIES = 'REQUEST_MOVIES'
 export const RECEIVE_MOVIES = 'RECEIVE_MOVIES'
 export const RECEIVE_MOVIES_DETAIL = 'RECEIVE_MOVIES_DETAIL'
@@ -14,7 +16,7 @@ export const requestMovies = {
 export const receiveMovies = (json) => {
     return ({
         type: RECEIVE_MOVIES,
-        movies: json.data
+        movies: json.data === undefined ? [] : json.data,
     });
 };
 

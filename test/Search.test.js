@@ -5,7 +5,7 @@ import { MemoryRouter as Router } from 'react-router-dom';
 
 describe('should render Search correctly', () => {
   const tree = mount(
-      <Router>
+      <Router keyLength={0}>
         <SearchComponent />
       </Router>
   );

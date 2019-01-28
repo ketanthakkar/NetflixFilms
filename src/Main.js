@@ -1,22 +1,16 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'; 
-import Content from './components/Content';
-import PageNotFound from './components/PageNotFound'
-import Movie from './components/Movie';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
+import routes from './routes';
 
 class Main extends Component {
     
     render() {   
         return ( 
             <div className="main">
-                <Router>
                     <Switch>
-                        <Route exact path='/' component={Content} /> 
-                        <Route path='/search/:query' component={Content} />
-                        <Route path='/film/:id' component={Movie} /> 
-                        <Route path='*' component={PageNotFound} />
-                    </Switch>  
-                </Router>      
+                        {renderRoutes(routes)}
+                    </Switch>
             </div>
         );
     }

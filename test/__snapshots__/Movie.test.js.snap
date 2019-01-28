@@ -50,7 +50,7 @@ exports[`should render Movie correctly Snapshot test 1`] = `
         </p>
       </div>
     </section>
-    <Connect(Content)
+    <withRouter(Connect(Content))
       showSearch={false}
     />
     <Footer />
