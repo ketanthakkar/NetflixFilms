@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { fetchMovies, filterMovies, filterMoviesBy } from '../actions/index';
 
 export class Search extends Component {
@@ -24,8 +25,16 @@ export class Search extends Component {
                 <div className="search-container">
                     <div className="search-selection">
                         <label className="white-text">SEARCH BY</label>
-                        <button id="title-btn" className={activeSearchBy === 'title' ? 'white-text' : 'white-text nonselected-color'} onClick={this.handleSearchClick}>TITLE</button>
-                        <button id="genre-btn" className={activeSearchBy === 'genres' ? 'white-text' : 'white-text nonselected-color'} onClick={this.handleSearchClick}>GENRE</button>
+                        <button id="title-btn" 
+                                className={activeSearchBy === 'title' ? 'white-text' : 'white-text nonselected-color'} 
+                                onClick={this.handleSearchClick}>
+                          TITLE
+                        </button>
+                        <button id="genre-btn" 
+                                className={activeSearchBy === 'genres' ? 'white-text' : 'white-text nonselected-color'} 
+                                onClick={this.handleSearchClick}>
+                          GENRE
+                        </button>
                     </div>
                     <Link to={`/search/${encodeURIComponent(searchStr)}`}>
                         <button className="white-text" onClick={this.props.fetchMovies}>SEARCH</button>
@@ -35,6 +44,14 @@ export class Search extends Component {
       );
     }
 }
+
+Search.propTypes = {
+  filterMovies: PropTypes.func,
+  fetchMovies: PropTypes.func,
+  filterMoviesBy: PropTypes.func,
+  activeSearchBy: PropTypes.string,
+  searchStr: PropTypes.string,
+};
 
 const mapStateToProps = state => ({
   activeSearchBy: state.search.searchBy,

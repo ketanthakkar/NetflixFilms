@@ -2,13 +2,18 @@
     "parser": "babel-eslint",
     "rules": {
         "max-len": [1, 120, 2, {"ignoreComments": true }],
-        "prop-types": [2],
-        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
     },
-    "extends": ["airbnb-base"],
+    "extends": ["airbnb-base",
+                "eslint:recommended",
+                "plugin:react/recommended"],
     "plugins": [
         "import",
         "react",
         "jsx-a11y"
-    ]
+    ],
+    "env": {
+        "browser": true,
+        "jest": true
+    }
 }

@@ -18,8 +18,16 @@ export class Filter extends Component {
                 <span className="results">{movieCount} movies found</span>
                 <div className="sort-detail">
                     <span>Sort by</span>
-                    <span id="release" className={activeSorting === 'release_date' ? 'highlight-color' : ''} onClick={this.handleSortClick}>release date</span>
-                    <span id="rating" className={activeSorting === 'vote_average' ? 'highlight-color' : ''} onClick={this.handleSortClick}>rating</span>
+                    <span id="release" 
+                          className={activeSorting === 'release_date' ? 'highlight-color' : ''} 
+                          onClick={this.handleSortClick}>
+                      release date
+                    </span>
+                    <span id="rating" 
+                          className={activeSorting === 'vote_average' ? 'highlight-color' : ''} 
+                          onClick={this.handleSortClick}>
+                      rating
+                    </span>
                 </div>
             </section>
       );
@@ -29,6 +37,8 @@ export class Filter extends Component {
 Filter.propTypes = {
   movieCount: PropTypes.number,
   activeSorting: PropTypes.string,
+  sortMovies: PropTypes.func,
+  fetchMovies: PropTypes.func
 };
 
 const mapStateToProps = state => ({

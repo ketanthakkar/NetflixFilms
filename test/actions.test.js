@@ -30,7 +30,7 @@ const buildMockStore = () => mockStore({
 
 describe('moviesActions', () => {
   test('should create action to get movies', () => {
-    const mockData = { data: [{ title: 'Fifty Shades Freed', title: 'TRANSFORMERS' }] };
+    const mockData = { data: [{ title: 'Fifty Shades Freed'}, {title: 'TRANSFORMERS' }] };
 
     const expectedAction = {
       type: moviesActions.RECEIVE_MOVIES,
@@ -73,18 +73,18 @@ describe('moviesActions', () => {
   it('should create correct URL', () => {
     const getState = () => ({
       search: {
-        searchStr: 'fifty',
+        searchStr: 'star',
         searchBy: 'title',
       },
-      sortBy: { sortBy: 'release_date' },
+      sortBy: { sortBy: 'rating' },
     });
-    const URL = 'http://react-cdp-api.herokuapp.com/movies?search=fifty&searchBy=title&sortBy=release_date&sortOrder=desc';
+    const URL = 'http://react-cdp-api.herokuapp.com/movies?search=star&searchBy=title&sortBy=rating&sortOrder=desc';
 
     expect(moviesActions.requestUrl(getState)).toEqual(URL);
   });
 
   it('should call receiveMovies on success', () => {
-    fetchMock.getOnce('http://react-cdp-api.herokuapp.com/movies?search=fifty&searchBy=title&sortBy=release_date&sortOrder=desc', {
+    fetchMock.getOnce('http://example.com/movies?search=fifty&searchBy=title&sortBy=release_date&sortOrder=desc', {
       body: mockState,
       headers: { 'content-type': 'application/json' },
     });

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
+import PropTypes from 'prop-types';
 import Title from './Title';
 import Footer from './Footer';
 import Content from './Content';
@@ -54,6 +55,16 @@ export class Movie extends Component {
             </React.Fragment>
     );
   }
+}
+
+Movie.propTypes = {
+  fetchMovieDetail: PropTypes.func,
+  movie: PropTypes.object,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string
+    })
+  }),
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({

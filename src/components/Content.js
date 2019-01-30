@@ -47,6 +47,13 @@ class Content extends Component {
 
 Content.propTypes = {
   showSearch: PropTypes.bool,
+  fetchSearchedMovies: PropTypes.func,
+  movies: PropTypes.array,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+        query: PropTypes.string
+    })
+  }),
 };
 
 Content.defaultProps = {
