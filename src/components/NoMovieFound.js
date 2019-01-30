@@ -8,7 +8,7 @@ const NoMovieFound = () => (
 );
 
 NoMovieFound.propTypes = {
-  message: PropTypes.string
+  message: PropTypes.string,
 };
 
 export default NoMovieFound;

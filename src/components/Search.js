@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
-import { fetchMovies, filterMovies, filterMoviesBy } from '../actions/index';
 import { connect } from 'react-redux';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { fetchMovies, filterMovies, filterMoviesBy } from '../actions/index';
 
 export class Search extends Component {
-
     handleSearchClick = (event) => {
-       const filterBy = event.target.id === "genre-btn" ? "genres" : "title"
-       this.props.filterMoviesBy(filterBy);
+      const filterBy = event.target.id === 'genre-btn' ? 'genres' : 'title';
+      this.props.filterMoviesBy(filterBy);
     }
 
     handleChange = (event) => {
-        this.props.filterMovies(event.target.value);
-      }
+      this.props.filterMovies(event.target.value);
+    }
 
     render() {
-        const { activeSearchBy, searchStr } = this.props;
-        
-        return (
+      const { activeSearchBy, searchStr } = this.props;
+
+      return (
             <section className="search-section">
                 <h4 className="white-text">FIND YOUR MOVIE</h4>
                 <input type="text" placeholder="Enter title/genre" className="white-text search-title"
@@ -30,26 +29,26 @@ export class Search extends Component {
                     </div>
                     <Link to={`/search/${encodeURIComponent(searchStr)}`}>
                         <button className="white-text" onClick={this.props.fetchMovies}>SEARCH</button>
-                    </Link>    
+                    </Link>
                 </div>
             </section>
-            )
-        }
+      );
     }
+}
 
-const mapStateToProps = (state) => ({
-    activeSearchBy: state.search.searchBy,
-    searchStr: state.search.searchStr,
+const mapStateToProps = state => ({
+  activeSearchBy: state.search.searchBy,
+  searchStr: state.search.searchStr,
 });
 
 Search.defaultProps = {
-    onSearch: () => { },
-  };
+  onSearch: () => { },
+};
 
 const mapDispatchToProps = {
-        fetchMovies,
-        filterMovies,
-        filterMoviesBy
+  fetchMovies,
+  filterMovies,
+  filterMoviesBy,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

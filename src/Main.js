@@ -4,16 +4,15 @@ import { renderRoutes } from 'react-router-config';
 import routes from './routes';
 
 class Main extends Component {
-    
-    render() {   
-        return ( 
+  render() {
+    return (
             <div className="main">
                     <Switch>
                         {renderRoutes(routes)}
                     </Switch>
             </div>
-        );
-    }
+    );
+  }
 }
 
 export default Main;

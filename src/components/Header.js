@@ -7,6 +7,6 @@ export const Header = () => (
             <Title />
             <Search />
         </header>
-)
+);
 
 export default Header;

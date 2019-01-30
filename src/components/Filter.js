@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { sortMovies, fetchMovies } from '../actions/index'
 import PropTypes from 'prop-types';
+import { sortMovies, fetchMovies } from '../actions/index';
 
 export class Filter extends Component {
-
     handleSortClick = (event) => {
-        const sortBy = event.target.id === "release" ? "release_date" : "vote_average";
-        this.props.sortMovies(sortBy);
-        this.props.fetchMovies();
+      const sortBy = event.target.id === 'release' ? 'release_date' : 'vote_average';
+      this.props.sortMovies(sortBy);
+      this.props.fetchMovies();
     };
 
     render() {
-        const { movieCount, activeSorting } = this.props;
+      const { movieCount, activeSorting } = this.props;
 
-        return (
+      return (
             <section className="filter-container">
                 <span className="results">{movieCount} movies found</span>
                 <div className="sort-detail">
@@ -23,23 +22,23 @@ export class Filter extends Component {
                     <span id="rating" className={activeSorting === 'vote_average' ? 'highlight-color' : ''} onClick={this.handleSortClick}>rating</span>
                 </div>
             </section>
-        )
+      );
     }
 }
 
 Filter.propTypes = {
-    movieCount: PropTypes.number,
-    activeSorting: PropTypes.string,
+  movieCount: PropTypes.number,
+  activeSorting: PropTypes.string,
 };
 
-const mapStateToProps = (state) => ({
-    movieCount: state.movies.movieData.length,
-    activeSorting: state.sortBy.sortBy,
+const mapStateToProps = state => ({
+  movieCount: state.movies.movieData.length,
+  activeSorting: state.sortBy.sortBy,
 });
 
 const mapDispatchToProps = {
-      sortMovies,
-      fetchMovies
-}
+  sortMovies,
+  fetchMovies,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);
