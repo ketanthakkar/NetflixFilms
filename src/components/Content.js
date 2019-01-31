@@ -66,5 +66,4 @@ const mapStateToProps = state => ({
   movies: state.movies.movieData,
 });
 
-export { Content };
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Content));

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { fetchMovies, filterMovies, filterMoviesBy } from '../actions/index';
 
-export class Search extends Component {
+class Search extends Component {
     handleSearchClick = (event) => {
       const filterBy = event.target.id === 'genre-btn' ? 'genres' : 'title';
       this.props.filterMoviesBy(filterBy);

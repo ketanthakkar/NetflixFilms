@@ -1,12 +1,12 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { MemoryRouter as Router } from 'react-router-dom';
-import { Search as SearchComponent } from '../src/components/Search';
+import Search from '../src/components/Search';
 
 describe('should render Search correctly', () => {
-  const tree = mount(
+  const tree = shallow(
       <Router keyLength={0}>
-        <SearchComponent />
+        <Search />
       </Router>,
   );
   test('Snapshot test', () => {

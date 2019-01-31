@@ -8,7 +8,7 @@ import Footer from './Footer';
 import Content from './Content';
 import { fetchMovieDetail } from '../actions';
 
-export class Movie extends Component {
+class Movie extends Component {
   static fetchData(dispatch, match) {
     return dispatch(fetchMovieDetail(match.params.id));
   }

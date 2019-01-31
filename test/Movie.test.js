@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Movie as MovieDetail } from '../src/components/Movie';
+import Movie from '../src/components/Movie';
 
 describe('should render Movie correctly', () => {
   const movieData = {
@@ -20,7 +20,7 @@ describe('should render Movie correctly', () => {
     ],
     runtime: 106,
   };
-  const tree = shallow(<MovieDetail movie={ movieData }/>);
+  const tree = shallow(<Movie movie={ movieData }/>);
   test('Snapshot test', () => {
     expect(tree).toMatchSnapshot();
   });

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Content as MovieContent } from '../src/components/Content';
+import Content from '../src/components/Content';
 
 const movies = {
   data: [
@@ -26,7 +26,7 @@ const movies = {
 
 describe('should render Content component', () => {
   const tree = shallow(
-            <MovieContent movies={movies.data} />,
+            <Content movies={movies.data} />,
   );
   test('Snapshot test', () => {
     expect(tree).toMatchSnapshot();

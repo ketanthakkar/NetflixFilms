@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 import { sortMovies, fetchMovies } from '../actions/index';
 
@@ -51,4 +52,4 @@ const mapDispatchToProps = {
   fetchMovies,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Filter);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Filter));
