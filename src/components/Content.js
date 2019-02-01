@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+// @flow
+import * as React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import Filter from './Filter';
 import MovieItem from './MovieItem';
@@ -10,7 +10,22 @@ import Footer from './Footer';
 import NoMovieFound from './NoMovieFound';
 import { fetchSearchedMovies } from '../actions/index';
 
-class Content extends Component {
+type Props = {
+  movies: [],
+  match: {
+    params: {
+      query: string
+    }
+  },
+  showSearch: boolean,
+  fetchSearchedMovies: Function,
+}
+
+class Content extends React.Component<Props> {
+  static defaultProps = {
+    showSearch: true,
+  };
+  
   static fetchData(dispatch, match) {
     return dispatch(fetchSearchedMovies(match.params.query));
   }
@@ -23,42 +38,25 @@ class Content extends Component {
 
   render() {
     const { movies, showSearch } = this.props;
-
     return (
             <React.Fragment>
                 {showSearch && <Header /> }
                 <ErrorBoundary>
-                    {movies.length > 0
-                        && <React.Fragment>
+                    { movies.length > 0 ? <React.Fragment>
                             <Filter />
                             <main className="moviedata-container"> {
                                 movies.map(movie => <MovieItem key={movie.id} movieItem={movie} />)
                             }
                             </main>
                         </React.Fragment>
+                        : <NoMovieFound /> 
                     }
-                    { movies.length <= 0 && <NoMovieFound /> }
                 </ErrorBoundary>
                 {showSearch && <Footer /> }
             </React.Fragment>
     );
   }
 }
-
-Content.propTypes = {
-  showSearch: PropTypes.bool,
-  fetchSearchedMovies: PropTypes.func,
-  movies: PropTypes.array,
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-        query: PropTypes.string
-    })
-  }),
-};
-
-Content.defaultProps = {
-  showSearch: true,
-};
 
 const mapDispatchToProps = { fetchSearchedMovies };
 

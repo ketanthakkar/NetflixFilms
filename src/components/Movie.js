@@ -1,14 +1,31 @@
-import React, { Component } from 'react';
+// @flow
+import * as React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
-import PropTypes from 'prop-types';
 import Title from './Title';
 import Footer from './Footer';
 import Content from './Content';
 import { fetchMovieDetail } from '../actions';
 
-class Movie extends Component {
+type Props = {
+  movie: {
+    title: string,
+    poster_path: string,
+    release_date: string,
+    tagline: string,
+    genres: Array<string>,
+    runtime: string,
+    overview: string
+  },
+  match: {
+    params: {
+      id: string
+    }
+  },
+  fetchMovieDetail: Function,
+}
+
+class Movie extends React.Component<Props> {
   static fetchData(dispatch, match) {
     return dispatch(fetchMovieDetail(match.params.id));
   }
@@ -57,19 +74,7 @@ class Movie extends Component {
   }
 }
 
-Movie.propTypes = {
-  fetchMovieDetail: PropTypes.func,
-  movie: PropTypes.object,
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      id: PropTypes.string
-    })
-  }),
-}
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchMovieDetail,
-}, dispatch);
+const mapDispatchToProps = { fetchMovieDetail };
 
 const mapStateToProps = state => ({
   movie: state.movies.movie,

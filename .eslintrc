@@ -3,7 +3,9 @@
     "rules": {
         "max-len": [1, 120, 2, {"ignoreComments": true }],
         "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
-        "import/no-named-as-default": 0
+        "import/no-named-as-default": 0,
+        "flowtype/define-flow-type": 1,
+        "flowtype/use-flow-type": 1
     },
     "extends": ["airbnb-base",
                 "eslint:recommended",
@@ -11,7 +13,8 @@
     "plugins": [
         "import",
         "react",
-        "jsx-a11y"
+        "jsx-a11y",
+        "flowtype"
     ],
     "env": {
         "browser": true,

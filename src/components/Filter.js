@@ -1,12 +1,21 @@
-import React, { Component } from 'react';
+// @flow
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import PropTypes from 'prop-types';
 import { sortMovies, fetchMovies } from '../actions/index';
 
-export class Filter extends Component {
-    handleSortClick = (event) => {
-      const sortBy = event.target.id === 'release' ? 'release_date' : 'vote_average';
+type Props = {
+  movieCount: number,
+  activeSorting: String,
+  sortMovies: Function,
+  fetchMovies: Function
+}
+
+export class Filter extends React.Component<Props> {
+    handleSortClick = (event: SyntheticEvent<HTMLButtonElement>) => {
+      (event.currentTarget: HTMLButtonElement);
+
+      const sortBy = (event.target: window.HTMLButtonElement).id === 'release' ? 'release_date' : 'vote_average';
       this.props.sortMovies(sortBy);
       this.props.fetchMovies();
     };
@@ -34,13 +43,6 @@ export class Filter extends Component {
       );
     }
 }
-
-Filter.propTypes = {
-  movieCount: PropTypes.number,
-  activeSorting: PropTypes.string,
-  sortMovies: PropTypes.func,
-  fetchMovies: PropTypes.func
-};
 
 const mapStateToProps = state => ({
   movieCount: state.movies.movieData.length,
