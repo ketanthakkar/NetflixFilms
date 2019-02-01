@@ -2,7 +2,31 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { fetchMovies, filterMovies, filterMoviesBy } from '../actions/index';
+
+const SearchSection = styled.section`
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px 0;
+
+    & > * {
+      margin: 10px 0;
+    }
+`;
+
+const SearchContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+`;
+
+const SearchSelection = styled.div`
+    padding: 0 10px;
+
+    & > * {
+      margin: 0 10px;
+    }
+`;
 
 class Search extends Component {
     handleSearchClick = (event) => {
@@ -18,12 +42,12 @@ class Search extends Component {
       const { activeSearchBy, searchStr } = this.props;
 
       return (
-            <section className="search-section">
+            <SearchSection>
                 <h4 className="white-text">FIND YOUR MOVIE</h4>
                 <input type="text" placeholder="Enter title/genre" className="white-text search-title"
                         onChange={this.handleChange}></input>
-                <div className="search-container">
-                    <div className="search-selection">
+                <SearchContainer>
+                    <SearchSelection>
                         <label className="white-text">SEARCH BY</label>
                         <button id="title-btn" 
                                 className={activeSearchBy === 'title' ? 'white-text' : 'white-text nonselected-color'} 
@@ -35,12 +59,12 @@ class Search extends Component {
                                 onClick={this.handleSearchClick}>
                           GENRE
                         </button>
-                    </div>
+                    </SearchSelection>
                     <Link to={`/search/${encodeURIComponent(searchStr)}`}>
                         <button className="white-text" onClick={this.props.fetchMovies}>SEARCH</button>
                     </Link>
-                </div>
-            </section>
+                </SearchContainer>
+            </SearchSection>
       );
     }
 }
