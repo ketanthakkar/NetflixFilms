@@ -15,8 +15,6 @@
     "test:open": "cypress open",
     "lint:fix": "eslint ./ --cache --ignore-pattern .gitignore --fix",
     "lint": "eslint ./ --cache --ignore-pattern .gitignore",
-    "build": "babel src/ -d lib/",
-    "prepublish": "npm run build",
     "flow": "flow"
   },
   "jest": {
