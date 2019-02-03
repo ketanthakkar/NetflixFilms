@@ -30,7 +30,7 @@ function renderFullPage(html, preloadedState) {
 	`;
 }
 
-router.get('/*', function(req, res, next) {
+router.get('/*', function(req, res) {
   const store = configureStore();
 
   const branch = matchRoutes(routes, req.url);

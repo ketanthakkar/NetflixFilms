@@ -1,5 +1,6 @@
 const path = require("path");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = env => {
     const isProduction = env ? env.prod : false;
@@ -42,7 +43,7 @@ module.exports = env => {
                 parallel: true,
                 sourceMap: true
               }),
-              new OptimizeCSSAssetsPlugin({})
+              new OptimizeCssAssetsPlugin({})
             ]
           } : {},
 

@@ -26,7 +26,7 @@ const movies = {
 
 describe('should render Content component', () => {
   const tree = shallow(
-            <Content movies={movies.data} />,
+    <Content movies={movies.data} />,
   );
   test('Snapshot test', () => {
     expect(tree).toMatchSnapshot();

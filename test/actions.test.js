@@ -84,7 +84,7 @@ describe('moviesActions', () => {
   });
 
   it('should call receiveMovies on success', () => {
-    fetchMock.getOnce('http://example.com/movies?search=fifty&searchBy=title&sortBy=release_date&sortOrder=desc', {
+    fetchMock.getOnce('http://react-cdp-api.herokuapp.com/movies?search=fifty&searchBy=title&sortBy=release_date', {
       body: mockState,
       headers: { 'content-type': 'application/json' },
     });
