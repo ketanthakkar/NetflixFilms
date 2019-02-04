@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { createSelector } from 'reselect';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { fetchMovies, filterMovies, filterMoviesBy } from '../actions/index';
@@ -27,6 +28,8 @@ const SearchSelection = styled.div`
       margin: 0 10px;
     }
 `;
+
+export const getSearch = state => state.search || {};
 
 class Search extends Component {
     handleSearchClick = (event) => {
@@ -77,10 +80,13 @@ Search.propTypes = {
   searchStr: PropTypes.string,
 };
 
-const mapStateToProps = state => ({
-  activeSearchBy: state.search.searchBy,
-  searchStr: state.search.searchStr,
-});
+const mapStateToProps = createSelector(
+  getSearch, 
+  (search) => ({
+    activeSearchBy: search.searchBy,
+    searchStr: search.searchStr,
+  })
+);
 
 Search.defaultProps = {
   onSearch: () => { },

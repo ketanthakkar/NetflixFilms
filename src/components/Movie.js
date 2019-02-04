@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { createSelector } from 'reselect';
 import styled from 'styled-components';
 import Title from './Title';
 import Footer from './Footer';
@@ -66,6 +67,8 @@ const MovieDescription = styled.p`
     text-align: justify;
 `;
 
+const getMovie = state => state.movies || {};
+
 class Movie extends React.Component<Props> {
   static fetchData(dispatch, match) {
     return dispatch(fetchMovieDetail(match.params.id));
@@ -117,8 +120,11 @@ class Movie extends React.Component<Props> {
 
 const mapDispatchToProps = { fetchMovieDetail };
 
-const mapStateToProps = state => ({
-  movie: state.movies.movie,
-});
+const mapStateToProps = createSelector(
+  getMovie, 
+  (movie) => ({
+    movie: movie.movie,
+  })
+);
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Movie));
