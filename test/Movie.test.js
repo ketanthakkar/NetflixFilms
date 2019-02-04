@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Movie from '../src/components/Movie';
+import Movie, { getMovie, mapStateToProps } from '../src/components/Movie';
 
 describe('should render Movie correctly', () => {
   const movieData = {
@@ -24,4 +24,23 @@ describe('should render Movie correctly', () => {
   test('Snapshot test', () => {
     expect(tree).toMatchSnapshot();
   });
+
+  test('should get movie', () => {
+    const state = {
+      movies: "star",
+    };
+    const expected = "star";
+
+    expect(getMovie(state)).toEqual(expected);
+  })
+
+  test('should map state to props', () => {
+    const selector = mapStateToProps.resultFunc;
+    const expected = {
+      movie: 'star',
+    };
+
+    expect(selector({ movie: 'star' })).toEqual(expected);
+  })
+
 });

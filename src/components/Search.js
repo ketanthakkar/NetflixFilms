@@ -80,7 +80,7 @@ Search.propTypes = {
   searchStr: PropTypes.string,
 };
 
-const mapStateToProps = createSelector(
+export const mapStateToProps = createSelector(
   getSearch, 
   (search) => ({
     activeSearchBy: search.searchBy,

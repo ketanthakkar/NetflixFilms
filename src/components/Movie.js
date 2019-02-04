@@ -67,7 +67,7 @@ const MovieDescription = styled.p`
     text-align: justify;
 `;
 
-const getMovie = state => state.movies || {};
+export const getMovie = state => state.movies || {};
 
 class Movie extends React.Component<Props> {
   static fetchData(dispatch, match) {
@@ -120,10 +120,10 @@ class Movie extends React.Component<Props> {
 
 const mapDispatchToProps = { fetchMovieDetail };
 
-const mapStateToProps = createSelector(
+export const mapStateToProps = createSelector(
   getMovie, 
-  (movie) => ({
-    movie: movie.movie,
+  (movieData) => ({
+    movie: movieData.movie,
   })
 );
 
