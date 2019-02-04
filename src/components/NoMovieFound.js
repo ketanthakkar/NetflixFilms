@@ -1,14 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const NofoundContent = styled.div`
+    height: 600px;
+    text-align: center;
+`;
+
+const NofoundText = styled.h2`
+    line-height: 600px;
+`;
 
 const NoMovieFound = () => (
-  <div className="nofound-content">
-    <h2 className="nofound-text">No films found</h2>
-  </div>
+  <NofoundContent>
+    <NofoundText>No films found</NofoundText>
+  </NofoundContent>
 );
 
 NoMovieFound.propTypes = {
-  message: PropTypes.string
+  message: PropTypes.string,
 };
 
 export default NoMovieFound;

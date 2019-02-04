@@ -1,102 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render Search correctly Snapshot test 1`] = `
-<MemoryRouter
-  keyLength={0}
->
-  <Router
-    history={
-      Object {
-        "action": "POP",
-        "block": [Function],
-        "canGo": [Function],
-        "createHref": [Function],
-        "entries": Array [
-          Object {
-            "hash": "",
-            "pathname": "/",
-            "search": "",
-            "state": undefined,
-          },
-        ],
-        "go": [Function],
-        "goBack": [Function],
-        "goForward": [Function],
-        "index": 0,
-        "length": 1,
-        "listen": [Function],
-        "location": Object {
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "canGo": [Function],
+      "createHref": [Function],
+      "entries": Array [
+        Object {
           "hash": "",
           "pathname": "/",
           "search": "",
           "state": undefined,
         },
-        "push": [Function],
-        "replace": [Function],
-      }
+      ],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "index": 0,
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
     }
-  >
-    <Search
-      onSearch={[Function]}
-    >
-      <section
-        className="search-section"
-      >
-        <h4
-          className="white-text"
-        >
-          FIND YOUR MOVIE
-        </h4>
-        <input
-          className="white-text search-title"
-          onChange={[Function]}
-          placeholder="Enter title/genre"
-          type="text"
-        />
-        <div
-          className="search-container"
-        >
-          <div
-            className="search-selection"
-          >
-            <label
-              className="white-text"
-            >
-              SEARCH BY
-            </label>
-            <button
-              className="white-text nonselected-color"
-              id="title-btn"
-              onClick={[Function]}
-            >
-              TITLE
-            </button>
-            <button
-              className="white-text nonselected-color"
-              id="genre-btn"
-              onClick={[Function]}
-            >
-              GENRE
-            </button>
-          </div>
-          <Link
-            replace={false}
-            to="/search/undefined"
-          >
-            <a
-              href="/search/undefined"
-              onClick={[Function]}
-            >
-              <button
-                className="white-text"
-              >
-                SEARCH
-              </button>
-            </a>
-          </Link>
-        </div>
-      </section>
-    </Search>
-  </Router>
-</MemoryRouter>
+  }
+>
+  <Connect(Search) />
+</Router>
 `;

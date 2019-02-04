@@ -1,10 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render Header correctly Snapshot test 1`] = `
-<header
-  className="header-section"
->
+<styled.header>
   <Title />
   <Connect(Search) />
-</header>
+</styled.header>
 `;

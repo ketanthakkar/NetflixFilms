@@ -2,14 +2,79 @@
 
 exports[`should render Footer correctly Snapshot test 1`] = `
 <Footer>
-  <footer
-    className="footer-section"
-  >
-    <span
-      className="netflix-text"
+  <styled.footer>
+    <StyledComponent
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bdVaJa",
+            "isStatic": true,
+            "lastClassName": "fiuuPk",
+            "rules": Array [
+              "
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 10px;
+    width: 100%;
+",
+            ],
+          },
+          "displayName": "styled.footer",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-bdVaJa",
+          "target": "footer",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
     >
-      netflixroulette
-    </span>
-  </footer>
+      <footer
+        className="sc-bdVaJa fiuuPk"
+      >
+        <styled.h4>
+          <StyledComponent
+            forwardedComponent={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-bwzfXH",
+                  "isStatic": true,
+                  "lastClassName": "fyJKpi",
+                  "rules": Array [
+                    "
+    color: #F65262;
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+",
+                  ],
+                },
+                "displayName": "styled.h4",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "sc-bwzfXH",
+                "target": "h4",
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              }
+            }
+            forwardedRef={null}
+          >
+            <h4
+              className="sc-bwzfXH fyJKpi"
+            >
+              netflixroulette
+            </h4>
+          </StyledComponent>
+        </styled.h4>
+      </footer>
+    </StyledComponent>
+  </styled.footer>
 </Footer>
 `;

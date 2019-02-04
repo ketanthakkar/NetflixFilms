@@ -1,12 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
 import Title from './Title';
 import Search from './Search';
 
-export const Header = () => (
-        <header className="header-section">
+const HeaderSection = styled.header`
+    background-color: rgba(0, 0, 0, 1);
+`;
+
+const Header = () => (
+        <HeaderSection>
             <Title />
             <Search />
-        </header>
-)
+        </HeaderSection>
+);
 
 export default Header;

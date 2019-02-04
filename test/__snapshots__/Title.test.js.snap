@@ -2,14 +2,78 @@
 
 exports[`should renders Title correctly Snapshot test 1`] = `
 <Title>
-  <div
-    className="title-section"
-  >
-    <h4
-      className="netflix-text"
+  <styled.div>
+    <StyledComponent
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bdVaJa",
+            "isStatic": true,
+            "lastClassName": "ucoUf",
+            "rules": Array [
+              "
+    margin: 0 auto;
+    padding: 10px;
+",
+            ],
+          },
+          "displayName": "styled.div",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-bdVaJa",
+          "target": "div",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
     >
-      netflixroulette
-    </h4>
-  </div>
+      <div
+        className="sc-bdVaJa ucoUf"
+      >
+        <styled.h4>
+          <StyledComponent
+            forwardedComponent={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-bwzfXH",
+                  "isStatic": true,
+                  "lastClassName": "fyJKpi",
+                  "rules": Array [
+                    "
+    color: #F65262;
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+",
+                  ],
+                },
+                "displayName": "styled.h4",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "sc-bwzfXH",
+                "target": "h4",
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              }
+            }
+            forwardedRef={null}
+          >
+            <h4
+              className="sc-bwzfXH fyJKpi"
+            >
+              netflixroulette
+            </h4>
+          </StyledComponent>
+        </styled.h4>
+      </div>
+    </StyledComponent>
+  </styled.div>
 </Title>
 `;

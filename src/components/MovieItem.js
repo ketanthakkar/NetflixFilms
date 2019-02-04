@@ -1,9 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from "react-router-dom";
+// @flow
+import * as React from 'react';
+import { Link } from 'react-router-dom';
 
-const MovieItem = ({movieItem}) => {
-    return (
+type Props = {
+    movieItem: {
+      id: string,
+      poster_path: string,
+      release_date: string,
+      tagline: string,
+      genres: Array<string>,
+      title: string,
+    }
+}
+
+const MovieItem = ({ movieItem }: Props) => (
         <section className="movieitem-container">
             <figure>
                 <Link to={`/film/${movieItem.id}`}>
@@ -13,14 +23,9 @@ const MovieItem = ({movieItem}) => {
                     <span>{movieItem.title.toUpperCase()}</span>
                     <span className="movieitem-year">{movieItem.release_date}</span>
                 </figcaption>
-                <span className="movieitem-genres">{movieItem.genres.join(" & ")}</span>
+                <span className="movieitem-genres">{movieItem.genres.join(' & ')}</span>
             </figure>
         </section>
-    )
-}
-
-MovieItem.propTypes = {
-    movieItem: PropTypes.object
-};
+);
 
 export default MovieItem;

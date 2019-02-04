@@ -9,63 +9,12 @@ body {
  position: relative;
 }
 
-.main {
-    display: flex;
-    flex-flow: column;
-    height: 100%;
-}
-
-.netflix-text {
-    color: #F65262;
-    width: 90%;
-    display: block;
-    margin: 0 auto;
-}
-
 .white-text {
     color: white;
 }
 
 .red-text {
     color: red;
-}
-
-.header-section {
-    background-color: rgba(0, 0, 0, 1);
-}
-
-.title-section {
-    margin: 0 auto;
-    padding: 10px;
-}
-
-.search-section {
-    width: 80%;
-    margin: 0 auto;
-    padding: 10px 0;
-}
-
-.search-section > * {
-    margin: 10px 0;
-}
-
-.footer-section {
-    background-color: rgba(0, 0, 0, 0.9);
-    padding: 10px;
-    width: 100%;
-}
-
-.search-container {
-    display: flex;
-    justify-content: space-between;
-}
-
-.search-selection {
-    padding: 0 10px;
-}
-
-.search-selection > * {
-    margin: 0 10px;
 }
 
 .search-title {
@@ -141,46 +90,10 @@ button {
 
 /* Movie Detail Screen */
 
-.movie-poster {
-    display: flex;
-    justify-content: space-around;
-    background-color: rgba(0, 0, 0, 0.9)
-}
-
 .movie-img {
     max-width: 400px;
     max-height: 400px;
     padding: 50px 0;
-}
-
-.movie-detail {
-    max-width: 50%;
-    color:white;
-    padding: 50px 0;
-}
-
-.movie-detail > * {
-    padding: 5px 0;
-    font-size: 18px;
-}
-
-.movie-detail > span {
-    display: block;
-}
-
-.movie-title {
-    font-size: 28px;
-    color: #E2535F;
-    font-weight: bold;
-}
-
-.movie-length {
-    margin-left: 10px;
-}
-
-.movie-description {
-    width: 70%;
-    text-align: justify;
 }
 
 .highlight-color {
@@ -189,13 +102,4 @@ button {
 
 .nonselected-color {
     background-color: #3c3c3c;
-}
-
-.nofound-content {
-    height: 600px;
-    text-align: center;
-}
-
-.nofound-text {
-    line-height: 600px;
 }

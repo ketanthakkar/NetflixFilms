@@ -6,4 +6,3 @@ export default (initialState) => {
   const store = createStore(rootReducer, initialState, applyMiddleware(thunk));
   return store;
 };
-

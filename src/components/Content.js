@@ -1,65 +1,67 @@
-import React, { Component } from 'react';
+// @flow
+import * as React from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import Filter from './Filter';
 import MovieItem from './MovieItem';
 import ErrorBoundary from '../error/ErrorBoundary';
 import Header from './Header';
 import Footer from './Footer';
-import { connect } from 'react-redux';
 import NoMovieFound from './NoMovieFound';
-import PropTypes from 'prop-types';
-import { bindActionCreators } from 'redux';
-import { withRouter } from 'react-router';
-import { fetchSearchedMovies } from '../actions/index'
+import { fetchSearchedMovies } from '../actions/index';
 
-class Content extends Component {
-
-    static fetchData(dispatch, match) {
-        return dispatch(fetchSearchedMovies(match.params.query));
+type Props = {
+  movies: [],
+  match: {
+    params: {
+      query: string
     }
+  },
+  showSearch: boolean,
+  fetchSearchedMovies: Function,
+}
 
-    componentDidMount() {
-        if(this.props.match) {
-            this.props.fetchSearchedMovies(this.props.match.params.query);
-        }
+class Content extends React.Component<Props> {
+  static defaultProps = {
+    showSearch: true,
+  };
+  
+  static fetchData(dispatch, match) {
+    return dispatch(fetchSearchedMovies(match.params.query));
+  }
+
+  componentDidMount() {
+    if (this.props.match) {
+      this.props.fetchSearchedMovies(this.props.match.params.query);
     }
+  }
 
-    render() {
-        const { movies, showSearch } = this.props;
-        
-        return (
+  render() {
+    const { movies, showSearch } = this.props;
+    return (
             <React.Fragment>
-                {showSearch && <Header /> } 
+                {showSearch && <Header /> }
                 <ErrorBoundary>
-                    {movies.length > 0 &&
-                        <React.Fragment>
+                    { movies.length > 0 ? <React.Fragment>
                             <Filter />
                             <main className="moviedata-container"> {
                                 movies.map(movie => <MovieItem key={movie.id} movieItem={movie} />)
                             }
                             </main>
                         </React.Fragment>
+                        : <NoMovieFound /> 
                     }
-                    { movies.length <= 0 && <NoMovieFound /> }
-                </ErrorBoundary>    
+                </ErrorBoundary>
                 {showSearch && <Footer /> }
             </React.Fragment>
-        );
-    }
+    );
+  }
 }
-
-Content.propTypes = {
-    showSearch: PropTypes.bool
-};
-
-Content.defaultProps = {
-    showSearch: true
-};
 
 const mapDispatchToProps = { fetchSearchedMovies };
 
-const mapStateToProps = (state) => ({
-    movies: state.movies.movieData,
+const mapStateToProps = state => ({
+  movies: state.movies.movieData,
 });
 
-export { Content }; 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Content));
