@@ -27,6 +27,10 @@ type Props = {
   fetchMovieDetail: Function,
 }
 
+type State = {
+  movies: Object
+}
+
 const HeaderSection = styled.header`
     background-color: rgba(0, 0, 0, 1);
 `;
@@ -67,7 +71,7 @@ const MovieDescription = styled.p`
     text-align: justify;
 `;
 
-export const getMovie = state => state.movies || {};
+export const getMovie = (state: State) => state.movies || {};
 
 class Movie extends React.Component<Props> {
   static fetchData(dispatch, match) {
