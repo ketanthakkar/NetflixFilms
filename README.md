@@ -1,4 +1,4 @@
-# React Mentoring Program
+# React Mentoring
 
 ### Install dependncies
 ```
